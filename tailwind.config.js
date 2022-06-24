@@ -12,5 +12,4 @@ module.exports = {
             quick: ['Quicksand', 'sans-serif']
         }
     },
-    plugins: [],
 }

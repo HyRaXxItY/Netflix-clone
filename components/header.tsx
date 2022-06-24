@@ -20,7 +20,7 @@ function Header() {
 
 
     return (
-        <header className={`${isScrolled && 'bg-[#141414] bg-opacity-75'}`} >
+        <header className={`${isScrolled && 'bg-[#141414] bg-opacity-50'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img
                     src="https://rb.gy/ulxxee"
@@ -28,6 +28,9 @@ function Header() {
                     height={100}
                     className="cursor-pointer object-contain"
                 />
+
+                {/* <BasicMenu /> */}
+
                 <ul className="hidden space-x-4 md:flex">
                     <li className="headerLink cursor-default font-semibold text-white hover:text-white">
                         Home
