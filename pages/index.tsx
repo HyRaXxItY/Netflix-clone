@@ -27,21 +27,20 @@ const Home = ({ netflixOriginals,
 
   return (
     <div
-      className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
+      className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] overflow-hide'>
       <Head>
         <title>
           Netflix
         </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <Header />
 
-      <main className="relative pl-4 pb-24 pt-8 lg:space-y-24 lg:pl-16 lg:pb-8">
+      <main className='relative pl-4 pt-12 lg:space-y-24 lg:pl-12 lg:pb-8 lg:pt-24'>
         <Banner netflixOriginals={netflixOriginals} />
-
-        <section className="md:space-y-24">
-          <Row title="Trending Now" movies={trendingNow} />
+        <section className='md:space-y-24 pb-8'>
+          <Row title='Trending Now' movies={trendingNow} />
           <Row title='Top Rated' movies={topRated} />
           <Row title='Action Thriller' movies={actionMovies} />
           <Row title='Comedy' movies={comedyMovies} />
@@ -70,13 +69,13 @@ export const getServerSideProps = async () => {
     documentaries
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
+    fetch(requests.fetchTrending).then((res) => res.json()),
+    fetch(requests.fetchTopRated).then((res) => res.json()),
+    fetch(requests.fetchActionMovies).then((res) => res.json()),
+    fetch(requests.fetchComedyMovies).then((res) => res.json()),
+    fetch(requests.fetchHorrorMovies).then((res) => res.json()),
+    fetch(requests.fetchRomanceMovies).then((res) => res.json()),
+    fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ])
   return {
     props: {
@@ -86,7 +85,7 @@ export const getServerSideProps = async () => {
       actionMovies: actionMovies.results,
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
-      romanceMovie: romanceMovies.results,
+      romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
     }
   }

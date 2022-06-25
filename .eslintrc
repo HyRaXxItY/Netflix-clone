@@ -1,0 +1,8 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "quotes": [2, "prefer-single", { "avoidEscape": true, "allowTemplateLiterals": true }]
+  }
+}
