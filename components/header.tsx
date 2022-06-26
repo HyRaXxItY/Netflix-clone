@@ -1,9 +1,11 @@
 import { FaBell, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-function Header() {
+import useAuth from '../hooks/useAuth';
 
+function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const { logout } = useAuth()
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 75) {
@@ -45,13 +47,14 @@ function Header() {
                 <FaSearch className="sm hidden h-6 w-6 sm:inline" />
                 <p className="hidden lg:inline">Kids</p>
                 <FaBell className="h-6 w-6" />
-                <Link href="/account">
-                    <img
-                        src="https://rb.gy/g1pwyx"
-                        alt=""
-                        className="cursor-pointer rounded"
-                    />
-                </Link>
+                {/* <Link href='/' onClick={logout}> */}
+                <img
+                    src="https://rb.gy/g1pwyx"
+                    alt=""
+                    className="cursor-pointer rounded"
+                    onClick={logout}
+                />
+                {/* </Link> */}
             </div>
         </header>
     )

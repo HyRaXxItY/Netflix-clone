@@ -1,15 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app"
 import { getFirestore } from 'firebase/firestore'
-import {
-    getAuth,
-    signInWithRedirect,
-    signInWithPopup,
-    GoogleAuthProvider,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
-} from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
     apiKey: "AIzaSyB-YMrfvvDSYDgGt7B05QTdsOggV7fT_ig",
@@ -27,15 +18,3 @@ const auth = getAuth()
 
 export default app
 export { auth, db }
-
-const googleProvider = new GoogleAuthProvider();
-googleProvider.setCustomParameters({
-    prompt: 'select_account',
-})
-
-export const signUp = () => {
-    signInWithPopup(auth, googleProvider)
-}
-export const signIn = () => {
-    console.log('hello')
-}

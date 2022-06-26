@@ -4,6 +4,7 @@ import Header from '../components/header'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import Row from '../components/row'
+import useAuth from '../hooks/useAuth'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -24,6 +25,9 @@ const Home = ({ netflixOriginals,
   documentaries,
   topRated,
   trendingNow }: Props) => {
+
+  const { loading } = useAuth()
+  if (loading) return null
 
   return (
     <div
