@@ -4,7 +4,7 @@ import {
 } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { Children, createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth } from '../utils/firebase'
+import { auth } from '../utils/firebase/firebase'
 
 interface Props {
     children: React.ReactNode
@@ -35,22 +35,19 @@ export const AuthProvider = ({ children }: Props) => {
     const [initialLoading, setInitialLoading] = useState(true)
     const router = useRouter()
 
-    useEffect(() => {
-        return () => {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    setUser(user)
-                    setLoading(false)
-                }
-                else {
-                    setUser(null)
-                    setLoading(true)
-                    router.push('/login')
-                }
-                setInitialLoading(false)
-            })
-        }
-    }, [auth])
+    useEffect(() =>
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user)
+                setLoading(false)
+            }
+            else {
+                setUser(null)
+                setLoading(true)
+                router.push('/login')
+            }
+            setInitialLoading(false)
+        }), [auth])
 
     const signUp = async (email: string, password: string) => {
         setLoading(true)

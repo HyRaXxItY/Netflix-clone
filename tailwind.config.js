@@ -16,7 +16,8 @@ module.exports = {
         fontFamily: {
             poppins: ['Poppins', 'sans-serif'],
             nunito: ['Nunito', 'sans-serif'],
-            quick: ['Quicksand', 'sans-serif']
+            quick: ['Quicksand', 'sans-serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif']
         }
     },
 }
