@@ -32,6 +32,7 @@
         @apply bg-[#141414] text-white font-jakarta class-1 class-2 class-3 class-4;
         max-width: 100vw;
         scroll-behavior: smooth;
+        font-family: 'Plus Jakarta Sans', sans-serif;
     }
     header {
         @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
